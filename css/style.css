@@ -13,7 +13,7 @@
 }
 
 :root {
-    --main-color: #333333;
+    --main-color: #585656;
     --second-color: #8bc34a;
 }
 
@@ -28,6 +28,14 @@ section {
 *::selection {
     color: #fff;
     background: var(--main-color);
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--main-color);
+    line-height: 25px;
+    font-size: 16px;
+    letter-spacing: 1px;
 }
 
 img {
@@ -79,7 +87,7 @@ header.scrolled .navbar li a:hover {
     font-size: 0.9rem;
     padding: 1px 20px;
     color: #fff;
-    font-weight: 400;
+    font-weight: 350;
     text-transform: uppercase;
 }
 
@@ -122,24 +130,10 @@ header.scrolled .navbar li a:hover {
     flex: 1 1 17rem;
 }
 
-@keyframes animate {
-    0% {
-        transform: translate(-11px, 0);
-    }
-
-    50% {
-        transform: translate(-0px, -11px);
-    }
-
-    100% {
-        transform: translate(-11px, 0);
-    }
-}
-
 .home-text span {
     font-size: 1rem;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--second-color);
 }
 
@@ -151,7 +145,7 @@ header.scrolled .navbar li a:hover {
 
 .home-text h2 {
     font-size: 1.8rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--second-color);
     text-transform: uppercase;
     margin: 0.5rem 0 1.4rem;
@@ -209,35 +203,6 @@ header.scrolled .navbar li a:hover {
     background: #ebdbc8;
 }
 
-/* Add responsive styles for btn2 */
-@media (max-width: 768px) {
-    .btn2 {
-        width: 90%;
-        max-width: 250px;
-        font-size: 1rem;
-        padding: 10px 15px;
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .btn2 {
-        width: 90%;
-        max-width: 200px;
-        font-size: 0.9rem;
-        padding: 8px 12px;
-    }
-}
-
-@media (max-width: 360px) {
-    .btn2 {
-        width: 80%;
-        max-width: 180px;
-        font-size: 0.8rem;
-        padding: 6px 10px;
-    }
-}
-
 .heading {
     text-align: center;
     text-transform: uppercase;
@@ -245,7 +210,7 @@ header.scrolled .navbar li a:hover {
 
 .heading span {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--second-color);
 }
 
@@ -306,7 +271,7 @@ body {
 .shop-container .box span {
     color: #ebdbc8;
     font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: 400;
     margin: 0.2rem 0 0.5rem;
 }
 
@@ -328,26 +293,33 @@ body {
     flex-wrap: wrap;
     gap: 1.5rem;
     margin-top: 2rem;
+    padding: 0 10%;
 }
 
-.ceo-img,
-.app-img {
-    flex: 1 1 21rem;
+.ceo-img {
+    flex: 1 1 500px;
+    max-height: 600px;
 }
 
-.ceo-text,
-.app-text {
-    flex: 1 1 21rem;
+.ceo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.ceo-text h2,
-.app-text h2 {
+.ceo-text {
+    flex: 1 1 500px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.ceo-text h2 {
     font-size: 1.2rem;
     color: var(--second-color);
 }
 
-.ceo-text p,
-.app-text p {
+.ceo-text p {
     margin: 0.5rem 0 1rem;
     text-align: justify;
 }
@@ -357,14 +329,25 @@ body {
     flex-wrap: wrap;
     background: #ebdbc8;
     gap: 1.5rem;
+    padding: 50px 10%;
 }
 
 .about-img {
-    flex: 1 1 17rem;
+    flex: 1 1 500px;
+    max-height: 600px;
+}
+
+.about-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .about-text {
-    flex: 1 1 17rem;
+    flex: 1 1 500px;
+    max-height: 600px;
+    overflow-y: auto;
 }
 
 .about-text h2 {
@@ -377,10 +360,10 @@ body {
     text-align: justify;
 }
 
-.contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Social Media Links */
+.social {
+    text-align: center;
+    margin: 2rem 0;
 }
 
 .social a {
@@ -396,11 +379,13 @@ body {
 }
 
 .social a .bx:hover {
-    background: var(--main-color);
+    background: var(--second-color);
 }
 
+/* Footer Links */
 .links {
-    margin: 1rem 0 1rem;
+    text-align: center;
+    margin: 1rem 0;
 }
 
 .links a {
@@ -414,6 +399,7 @@ body {
     color: var(--main-color);
 }
 
+/* Copyright Text */
 .contact p {
     text-align: center;
 }
@@ -452,7 +438,6 @@ body {
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Hover Effects */
 .image-container:hover::after {
     opacity: 1;
 }
@@ -461,7 +446,6 @@ body {
     transform: scale(1.1);
 }
 
-/* Lightbox Modal */
 .lightbox {
     display: none;
     position: fixed;
@@ -473,7 +457,6 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Overlay text */
 .overlay {
     position: absolute;
     bottom: 10px;
@@ -487,7 +470,6 @@ body {
     border-radius: 5px;
 }
 
-/* Show text on hover */
 .image-container:hover .overlay {
     opacity: 1;
     transform: translateY(-5px);
@@ -503,7 +485,6 @@ body {
     transform: translateY(-50%);
 }
 
-/* Close Button */
 .close {
     position: absolute;
     top: 20px;
@@ -514,7 +495,6 @@ body {
     cursor: pointer;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
     .gallery {
         grid-template-columns: repeat(2, 1fr);
@@ -525,15 +505,18 @@ body {
     .gallery {
         grid-template-columns: repeat(2, 1fr);
     }
-}
 
-@media (max-width: 500px) {
-    .gallery {
-        grid-template-columns: repeat(1, 1fr);
+    .about, .ceo {
+        flex-direction: column;
+        padding: 50px 7%;
     }
-}
 
-@media (max-width: 768px) {
+    .about-img, .ceo-img,
+    .about-text, .ceo-text {
+        flex: 1 1 100%;
+        max-height: none;
+        overflow-y: visible;
+    }
 
     .home .btn,
     .home .btn1 {
@@ -545,10 +528,14 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
+    .gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 
-    .home .btn,
-    .home .btn1 {
+@media (max-width: 480px) {
+    .btn2 {
         width: 90%;
         max-width: 200px;
         font-size: 0.9rem;
@@ -557,9 +544,7 @@ body {
 }
 
 @media (max-width: 360px) {
-
-    .home .btn,
-    .home .btn1 {
+    .btn2 {
         width: 80%;
         max-width: 180px;
         font-size: 0.8rem;
@@ -625,35 +610,6 @@ body {
         color: black;
     }
 
-    /* #menu-icon {
-        display: initial;
-    }
-
-    header .navbar {
-        position: absolute;
-        top: -500px;
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        background: #fff;
-        box-shadow: 0 4px 4px rgb(14 55 54/ 14%);
-        border-top: 2px solid var(--main-color);
-        transition: 0.2 all;
-        text-align: left;
-    }
-
-    .navbar.active {
-        top: 100%;
-
-    }
-
-    .navbar a {
-        padding: 1.5rem;
-        display: block;
-        color: var(--main-color);
-    } */
-
     .home-text span {
         font-size: 0.9rem;
     }
@@ -692,12 +648,68 @@ body {
         display: flex;
         flex-direction: column;
     }
-
 }
 
 @media (max-width:351px) {
     .links {
         display: flex;
         flex-direction: column;
+    }
+}
+
+/* Common styles for both sections */
+.about, .ceo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 50px 10%;
+}
+
+.about {
+    background: #ebdbc8;
+}
+
+/* Special handling for CEO section heading */
+.ceo {
+    position: relative;
+}
+
+.ceo .heading {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+/* Common styles for images */
+.about-img, .ceo-img {
+    flex: 1 1 500px;
+    max-height: 600px;
+}
+
+.about-img img, .ceo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Common styles for text */
+.about-text, .ceo-text {
+    flex: 1 1 500px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .about, .ceo {
+        flex-direction: column;
+        padding: 50px 7%;
+    }
+
+    .about-img, .ceo-img,
+    .about-text, .ceo-text {
+        flex: 1 1 100%;
+        max-height: none;
+        overflow-y: visible;
     }
 }
