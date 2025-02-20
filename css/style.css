@@ -360,7 +360,44 @@ body {
     text-align: justify;
 }
 
-/* Social Media Links */
+.about, .ceo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 50px 10%;
+}
+
+.about {
+    background: #ebdbc8;
+}
+
+.ceo {
+    position: relative;
+}
+
+.ceo .heading {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.about-img, .ceo-img {
+    flex: 1 1 500px;
+    max-height: 600px;
+}
+
+.about-img img, .ceo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-text, .ceo-text {
+    flex: 1 1 500px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
 .social {
     text-align: center;
     margin: 2rem 0;
@@ -382,7 +419,6 @@ body {
     background: var(--second-color);
 }
 
-/* Footer Links */
 .links {
     text-align: center;
     margin: 1rem 0;
@@ -397,11 +433,6 @@ body {
 
 .links a:hover {
     color: var(--main-color);
-}
-
-/* Copyright Text */
-.contact p {
-    text-align: center;
 }
 
 .gallery {
@@ -657,49 +688,6 @@ body {
     }
 }
 
-/* Common styles for both sections */
-.about, .ceo {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 50px 10%;
-}
-
-.about {
-    background: #ebdbc8;
-}
-
-/* Special handling for CEO section heading */
-.ceo {
-    position: relative;
-}
-
-.ceo .heading {
-    width: 100%;
-    margin-bottom: 2rem;
-}
-
-/* Common styles for images */
-.about-img, .ceo-img {
-    flex: 1 1 500px;
-    max-height: 600px;
-}
-
-.about-img img, .ceo-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Common styles for text */
-.about-text, .ceo-text {
-    flex: 1 1 500px;
-    max-height: 600px;
-    overflow-y: auto;
-}
-
-/* Media Queries */
 @media (max-width: 768px) {
     .about, .ceo {
         flex-direction: column;
