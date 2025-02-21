@@ -448,7 +448,6 @@ header.scrolled .navbar li a:hover {
     box-shadow: 0 12px 40px var(--shadow-color);
 }
 
-/* Enhanced Gallery */
 .gallery .image-container {
     position: relative;
     overflow: hidden;
