@@ -16,14 +16,19 @@
     --main-color: #585656;
     --second-color: #8bc34a;
     --third-color: #ebdbc8;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --gradient-overlay: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 section {
     padding: 50px 10%;
+    position: relative;
+    overflow: hidden;
 }
 
 *::selection {
@@ -33,14 +38,20 @@ section {
 
 body {
     font-family: 'Lato', sans-serif;
+    background: linear-gradient(135deg, #fff, #ffffff); /* Smooth gradient */
     color: var(--main-color);
     line-height: 25px;
     font-size: 16px;
     letter-spacing: 1px;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 img {
     width: 100%;
+    filter: brightness(1.02);
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .logo img {
@@ -61,6 +72,8 @@ header {
     background: transparent;
     padding: 15px 10%;
     transition: 0.2s;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px var(--shadow-color);
 }
 
 header.scrolled {
@@ -152,7 +165,7 @@ header.scrolled .navbar li a:hover {
     margin: 0.5rem 0 1.4rem;
 }
 
-.btn {
+.btn, .btn1, .btn2, .btn3 {
     padding: 14px 45px 18px 45px;
     color: black;
     font-weight: 300;
@@ -160,11 +173,19 @@ header.scrolled .navbar li a:hover {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     margin-left: 5px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    backdrop-filter: blur(5px);
+    border-radius: 3px;
+    letter-spacing: 1.2px;
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn:hover {
+.btn:hover, .btn1:hover, .btn2:hover, .btn3:hover {
     color: #fff;
     background: var(--second-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .btn1 {
@@ -268,7 +289,6 @@ header.scrolled .navbar li a:hover {
 .about {
     display: flex;
     flex-wrap: wrap;
-    background: #ebdbc8;
     gap: 1.5rem;
     padding: 50px 10%;
 }
@@ -306,10 +326,6 @@ header.scrolled .navbar li a:hover {
     flex-wrap: wrap;
     gap: 1.5rem;
     padding: 50px 10%;
-}
-
-.about {
-    background: #ebdbc8;
 }
 
 .ceo {
@@ -354,10 +370,14 @@ header.scrolled .navbar li a:hover {
     color: #fff;
     background: var(--main-color);
     border-radius: 50%;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: all 0.3s ease;
 }
 
 .social a .bx:hover {
     background: var(--second-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 195, 74, 0.3);
 }
 
 .links {
@@ -416,6 +436,41 @@ header.scrolled .navbar li a:hover {
 
 .image-container:hover img {
     transform: scale(1.1);
+}
+
+/* Enhanced Card Effects */
+.about-img, .ceo-img, .image-container {
+    overflow: hidden;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-img:hover, .ceo-img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px var(--shadow-color);
+}
+
+/* Enhanced Gallery */
+.gallery .image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery .image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-overlay);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.gallery .image-container:hover::before {
+    opacity: 1;
 }
 
 .lightbox {
@@ -545,6 +600,8 @@ header.scrolled .navbar li a:hover {
     font-family: 'Lato', sans-serif;
     font-weight: normal;
     transition: all 0.3s ease;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px var(--shadow-color);
 }
 
 .contact-form input:focus,
@@ -552,6 +609,8 @@ header.scrolled .navbar li a:hover {
     outline: none;
     border-color: var(--second-color);
     background: rgba(139, 195, 74, 0.05);
+    box-shadow: 0 0 0 2px rgba(139, 195, 74, 0.2);
+    transform: translateY(-1px);
 }
 
 .contact-form input {
