@@ -1,18 +1,29 @@
 // Mobile Menu Variables
-let menu = document.querySelector('#menu-icon');
+let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
 // Mobile Menu Toggle Function
-menu.onclick = () => {
-    menu.classList.toggle('bx-x');
+menuIcon.onclick = () => {
     navbar.classList.toggle('active');
-}
+    // Optional: Change menu icon when clicked
+    menuIcon.classList.toggle('bx-x');
+};
 
-// Close Mobile Menu on Scroll
-window.onscroll = () => {
-    menu.classList.remove('bx-x');
-    navbar.classList.remove('active');
-}
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!menuIcon.contains(e.target) && !navbar.contains(e.target)) {
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('bx-x');
+    }
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('bx-x');
+    });
+});
 
 // Header Scroll Effect
 window.addEventListener("scroll", function () {
@@ -26,11 +37,6 @@ window.addEventListener("scroll", function () {
         navbar.classList.remove("scrolled");
     }
 });
-
-// Mobile Menu Icon Click Handler
-menuIcon.onclick = () => {
-    navbar.classList.toggle("active");
-};
 
 // DOM Content Loaded Event Handler
 document.addEventListener("DOMContentLoaded", () => {
