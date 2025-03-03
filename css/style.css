@@ -29,6 +29,7 @@ section {
     padding: 50px 10%;
     position: relative;
     overflow: hidden;
+    transition: opacity 0.5s ease;
 }
 
 *::selection {
@@ -38,7 +39,7 @@ section {
 
 body {
     font-family: 'Lato', sans-serif;
-    background: linear-gradient(135deg, #fff, #ffffff); /* Smooth gradient */
+    background: linear-gradient(135deg, #fff, #ffffff);
     color: var(--main-color);
     line-height: 25px;
     font-size: 16px;
@@ -76,7 +77,8 @@ header {
 
 header.scrolled {
     background: rgba(251, 248, 248, 1.0);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    animation: slideDown 0.5s ease forwards;
 }
 
 header.scrolled .navbar li a {
@@ -320,6 +322,7 @@ header.scrolled .navbar li a:hover {
 .why-box {
     padding: 60px 30px; 
     text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .why-box.blue {
@@ -463,12 +466,12 @@ header.scrolled .navbar li a:hover {
     font-family: 'Montserrat', sans-serif;
     color: #fff;
     border-radius: 3px;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cta-button:hover {
-    background: var(--main-color);
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .social {
@@ -522,39 +525,44 @@ header.scrolled .navbar li a:hover {
 
 .image-container {
     position: relative;
+    perspective: 1000px;
     overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-    border-radius: 3px;
 }
 
 .image-container img {
     width: 100%;
-    height: 250px;
-    display: block;
-    transition: transform 0.5s ease-in-out;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: right center;
+    backface-visibility: hidden;
 }
 
-.image-container::after {
-    content: "";
+.flip-content {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 50%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.4);
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.image-container:hover::after {
-    opacity: 1;
+    background: rgba(46, 202, 127, 0.85);
+    transform-origin: left center;
+    transform: rotateY(-90deg);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 2px;
 }
 
 .image-container:hover img {
-    transform: scale(1.05);
+    transform: translateX(50%);
+}
+
+.image-container:hover .flip-content {
+    transform: rotateY(0deg);
 }
 
 .about-img, .ceo-img, .image-container {
@@ -587,7 +595,7 @@ header.scrolled .navbar li a:hover {
 }
 
 .gallery .image-container:hover::before {
-    opacity: 1;
+    opacity: 0.5;
 }
 
 .lightbox {
@@ -727,7 +735,7 @@ header.scrolled .navbar li a:hover {
     border-color: var(--second-color);
     background: rgba(139, 195, 74, 0.05);
     box-shadow: 0 0 0 2px rgba(139, 195, 74, 0.2);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 .contact-form input {
@@ -1262,5 +1270,135 @@ header.scrolled .navbar li a:hover {
     .why-choose .heading h1,
     .why-choose .heading h1 span {
         font-size: 1.5rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate {
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.animate.fade-in-up {
+    transform: translateY(20px);
+}
+
+.animate.slide-in-left {
+    transform: translateX(-30px);
+}
+
+.animate.slide-in-right {
+    transform: translateX(30px);
+}
+
+.animate.scale-in {
+    transform: scale(0.9);
+}
+
+.animate.active {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+.cta-button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.why-box {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.why-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+section {
+    transition: opacity 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.contact-form input,
+.contact-form textarea {
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-overlay.animate {
+    opacity: 0;
+    transform: translate(30px, -50%); 
+}
+
+.about-overlay.animate.active {
+    opacity: 1;
+    transform: translate(0, -50%); 
+}
+
+@media (max-width: 768px) {
+    .about-overlay.animate,
+    .about-overlay.animate.active {
+        transform: none;
+        opacity: 1;
     }
 }
