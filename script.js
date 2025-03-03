@@ -58,3 +58,69 @@ document.addEventListener("DOMContentLoaded", () => {
         lightbox.style.display = "none";
     });
 });
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Only animate once
+        }
+    });
+}, observerOptions);
+
+// Function to initialize animations
+function initAnimations() {
+    // Add animation classes to elements
+    document.querySelectorAll('.heading').forEach(el => {
+        el.classList.add('animate', 'fade-in-up');
+    });
+
+    document.querySelectorAll('.why-box').forEach(el => {
+        el.classList.add('animate', 'scale-in');
+    });
+
+    document.querySelectorAll('.about-overlay').forEach(el => {
+        el.classList.add('animate', 'slide-in-right');
+    });
+
+    document.querySelectorAll('.ceo-img').forEach(el => {
+        el.classList.add('animate', 'slide-in-left');
+    });
+
+    document.querySelectorAll('.ceo-text').forEach(el => {
+        el.classList.add('animate', 'slide-in-right');
+    });
+
+    document.querySelectorAll('.image-container').forEach(el => {
+        el.classList.add('animate', 'fade-in-up');
+    });
+
+    // Observe all animated elements
+    document.querySelectorAll('.animate').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Initialize animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', initAnimations);
+
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
