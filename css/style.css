@@ -13,7 +13,7 @@
 }
 
 :root {
-    --main-color: #585656;
+    --main-color: #373636;
     --second-color: #8bc34a;
     --third-color: #ebdbc8;
     --shadow-color: rgba(0, 0, 0, 0.1);
@@ -243,115 +243,232 @@ header.scrolled .navbar li a:hover {
 
 .heading {
     text-align: center;
-    text-transform: uppercase;
-}
-
-.heading span {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--second-color);
+    margin-bottom: 50px;
 }
 
 .heading h1 {
+    font-size: 1.8rem;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+.heading h1 span {
+    color: var(--second-color);
+    font-size: inherit; 
+}
+
+.heading h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--second-color);
+    margin-bottom: -5px;
+}
+
+.heading span {
+    color: var(--second-color);
     font-size: 2rem;
-    color: var(--main-color);
+}
+
+.why-choose {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.why-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    width: 100%;
+}
+
+.why-choose .heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.why-choose .heading h1 {
+    color: #333;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+.why-choose .heading h1 span {
+    color: var(--second-color);
+    font-size: inherit;
+}
+
+.why-choose .heading h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--second-color);
+    margin-bottom: -5px;
+}
+
+.why-box {
+    padding: 60px 30px; 
+    text-align: center;
+}
+
+.why-box.blue {
+    background:var(--second-color);
+    color: white;
+}
+
+.why-box.dark {
+    background: #333;
+    color: white;
+}
+
+.why-box h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.why-box h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: currentColor;
+}
+
+.why-box p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.ceo {
+    padding: 50px 6%;
+}
+
+.ceo-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 50px;
 }
 
 .ceo-img {
-    flex: 1 1 500px;
-    max-height: 600px;
+    flex: 1;
+    height: 600px;
 }
 
 .ceo-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
 .ceo-text {
-    flex: 1 1 500px;
-    max-height: 600px;
-    overflow-y: auto;
+    flex: 1;
+    padding: 20px 0;
 }
 
 .ceo-text h2 {
-    font-size: 1.2rem;
     color: var(--second-color);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
 }
 
 .ceo-text p {
-    margin: 0.5rem 0 1rem;
-    text-align: justify;
+    color: var(--main-color);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
 }
 
 .about {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 50px 10%;
-}
-
-.about-img {
-    flex: 1 1 500px;
-    max-height: 600px;
-}
-
-.about-img img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    position: relative;
+    padding: 0;
+    margin: 50px 0;
 }
 
-.about-text {
-    flex: 1 1 500px;
-    max-height: 600px;
-    overflow-y: auto;
-}
-
-.about-text h2 {
-    font-size: 1.2rem;
-    color: var(--second-color);
-}
-
-.about-text p {
-    margin: 0.5rem 0 1rem;
-    text-align: justify;
-}
-
-.about, .ceo {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 50px 10%;
-}
-
-.ceo {
+.about-container {
+    width: 90%;
+    margin: 0 auto;
     position: relative;
 }
 
-.ceo .heading {
-    width: 100%;
-    margin-bottom: 2rem;
+.about-image {
+    width: 65%;
+    height: 700px;
 }
 
-.about-img, .ceo-img {
-    flex: 1 1 500px;
-    max-height: 600px;
-}
-
-.about-img img, .ceo-img img {
+.about-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.about-overlay {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45%;
+    background: rgb(242, 248, 241);
+    padding: 60px;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    color: var(--second-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
     display: block;
 }
 
-.about-text, .ceo-text {
-    flex: 1 1 500px;
-    max-height: 600px;
-    overflow-y: auto;
+.about-overlay h2 {
+    color: var(--main-color);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about-overlay p {
+    color: var(--main-color);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--second-color);
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--main-color);
+    transform: translateY(-3px);
 }
 
 .social {
@@ -753,6 +870,21 @@ header.scrolled .navbar li a:hover {
     .contact {
         padding: 50px 7%;
     }
+
+    .ceo-container {
+        flex-direction: column;
+    }
+
+    .ceo-img {
+        height: 400px;
+    }
+
+    .heading h1,
+    .heading h1 span,
+    .why-choose .heading h1,
+    .why-choose .heading h1 span {
+        font-size: 1.8rem;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -800,6 +932,13 @@ header.scrolled .navbar li a:hover {
         max-width: 200px;
         font-size: 0.9rem;
         padding: 8px 12px;
+    }
+
+    .heading h1,
+    .heading h1 span,
+    .why-choose .heading h1,
+    .why-choose .heading h1 span {
+        font-size: 1.5rem;
     }
 }
 
@@ -1046,5 +1185,82 @@ header.scrolled .navbar li a:hover {
 @media (max-width: 360px) {
     .home-text h1 {
         font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .why-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .why-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .why-choose .heading h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .about-image {
+        height: 500px;
+    }
+    
+    .about-overlay h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        width: 100%;
+    }
+
+    .about-image {
+        width: 100%;
+        height: 400px;
+    }
+
+    .about-overlay {
+        position: relative;
+        width: 90%;
+        margin: -100px auto 0;
+        transform: none;
+        top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-image {
+        height: 300px;
+    }
+    
+    .about-overlay {
+        padding: 30px;
+    }
+    
+    .about-overlay h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .heading h1,
+    .heading h1 span,
+    .why-choose .heading h1,
+    .why-choose .heading h1 span {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading h1,
+    .heading h1 span,
+    .why-choose .heading h1,
+    .why-choose .heading h1 span {
+        font-size: 1.5rem;
     }
 }
