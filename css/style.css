@@ -13,8 +13,8 @@
 }
 
 :root {
-    --main-color: #373636;
-    --second-color: #2eca7f;
+    --main-color: #000000;
+    --second-color: #fe9a18;
     --third-color: #ebdbc8;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --gradient-overlay: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
@@ -38,7 +38,7 @@ section {
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: linear-gradient(135deg, #fff, #ffffff);
     color: var(--main-color);
     line-height: 25px;
@@ -70,7 +70,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: transparent;
+    /* background: rgba(251, 248, 248, 0.3); */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 15px 10%;
     transition: 0.2s;
 }
@@ -82,11 +84,11 @@ header.scrolled {
 }
 
 header.scrolled .navbar li a {
-    color: var(--second-color);
+    color: var(--main-color);
 }
 
 header.scrolled .navbar li a:hover {
-    color: green;
+    color: #211f1f;
 }
 
 .logo {
@@ -119,22 +121,21 @@ header.scrolled .navbar li a:hover {
     font-size: 24px;
     display: none;
     z-index: 1001;
-    color: #8bc34a;
+    color: var(--second-color);
 }
 
 .home {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url(../assets/images/home.jpg) no-repeat center/cover;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
     width: 100%;
-    min-height: 90vh;
+    min-height: 100vh;
+    padding: 0 10%;
     display: flex;
-    flex-wrap: wrap;
-    text-align: center;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../assets/images/home.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .home-text {
@@ -164,6 +165,15 @@ header.scrolled .navbar li a:hover {
     color: var(--second-color);
     text-transform: uppercase;
     margin: 0.5rem 0 1.4rem;
+}
+
+.home-text p {
+    color: #ebdbc8;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 20px auto;
+    max-width: 600px;
+    font-weight: 300;
 }
 
 .btn, .btn1, .btn2, .btn3 {
@@ -296,7 +306,7 @@ header.scrolled .navbar li a:hover {
 }
 
 .why-choose .heading h1 {
-    color: #333;
+    color: var(--main-color);
     position: relative;
     display: inline-block;
     padding-bottom: 20px;
@@ -331,7 +341,7 @@ header.scrolled .navbar li a:hover {
 }
 
 .why-box.dark {
-    background: #333;
+    background: var(--main-color);
     color: white;
 }
 
@@ -547,17 +557,17 @@ header.scrolled .navbar li a:hover {
     left: 0;
     width: 50%;
     height: 100%;
-    background: rgba(46, 202, 127, 0.85);
+    background: var(--second-color);
     transform-origin: left center;
     transform: rotateY(-90deg);
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--main-color);
     font-size: 1.5rem;
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 .image-container:hover img {
